@@ -2,7 +2,7 @@
 
 class Bird{
   PVector pos;
-  PVector velocity = new PVector(0, 2.1);
+  PVector velocity = new PVector(0, 1.2);
   PVector acc = new PVector(0, 0.2);
   
   public Bird(PVector position){
@@ -15,14 +15,14 @@ class Bird{
     velocity.add(acc);
     stroke(155);
     fill(255);
-    if(mousePressed){
+    if(keyPressed && key=='b'){
       velocity.y -= 0.67;
     }
     if(pos.y < 0){
-      pos.y = 0;
+      noLoop();
     }
     if(pos.y > height){
-      pos.y = height;
+      noLoop();
     }
     ellipse(pos.x, pos.y, 50, 50);
   }
